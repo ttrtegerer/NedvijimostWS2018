@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.FirstPage" 
+             Title="Вход">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+            <Entry x:Name="Login" Placeholder="Логин" WidthRequest="200"></Entry>
+            <Entry x:Name="Password" Placeholder="Пароль" WidthRequest="200"></Entry>
+            <Button Clicked="Button_Clicked" WidthRequest="200" HeightRequest="40" Text="Войти"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

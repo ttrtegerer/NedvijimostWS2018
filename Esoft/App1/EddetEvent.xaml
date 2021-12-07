@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.EddetEvent"
+             Title="Информация о событии" >
+    <ContentPage.Content>
+        <StackLayout Background="#ff9c1a">
+            <Label x:Name="label" Text="Выберите дату" FontSize="Medium" />
+            <DatePicker x:Name="DateTime" Format="D" DateSelected="datePicker_DateSelected">
+                <DatePicker.MinimumDate>6/01/2021</DatePicker.MinimumDate>
+                <DatePicker.MaximumDate>6/30/2022</DatePicker.MaximumDate>
+            </DatePicker>
+            <Entry x:Name="TypeEvent" Placeholder="Тип События" Text="{Binding Path=TypeEvent}"  />
+            <Entry x:Name="Comment" Placeholder="Коментарий" Text="{Binding Path=Comment}"  />
+            <StackLayout Orientation="Horizontal">
+                <Stepper x:Name="priceStepper" Minimum="0" Maximum="100000" Increment="60"
+               Value="{Binding Path=Duration}"/>
+                <Label x:Name="priceLbl" FontSize="Large"
+             Text="{Binding Source={x:Reference Name=priceStepper}, Path=Value }" />
+            </StackLayout>
+            <Button Text="Сохранить" Clicked="SaveEvent" Background="#FF1744" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.EventPage"   
+             Title="Список событий">
+    <ContentPage.Content>
+        <StackLayout Background="#ff9c1a">
+            <Button Text="Добавить" Clicked="AddButton_Click" Background="#FF1744" />
+            <ListView x:Name="EventsList" ItemsSource="{Binding}" ItemSelected="OnListViewItemSelectedAsync">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding DateTime}" FontSize="Medium" Grid.Column="0" />
+                                    <Label Text="{Binding Duration}" FontSize="Medium" Grid.Column="1" />
+                                    <Label Text="{Binding TypeEvent}" FontSize="Medium" Grid.Column="2" />
+                                    <Label Text="{Binding Comment}" FontSize="Medium" Grid.Column="3" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
