@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище EntitisDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="z3-DealSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Demand_Id" Type="int" Nullable="false" />
+    <Property Name="Supply_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-DemandSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address_City" Type="nvarchar(max)" />
+    <Property Name="Address_Street" Type="nvarchar(max)" />
+    <Property Name="Address_House" Type="nvarchar(max)" />
+    <Property Name="Address_Number" Type="nvarchar(max)" />
+    <Property Name="MinPrice" Type="bigint" />
+    <Property Name="MaxPrice" Type="bigint" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="RealEstateFilter_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-PersonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="MiddleName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="z3-PersonSet_Agent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DealShare" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-PersonSet_Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateFilterSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateFilterSet_ApartmentFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MinArea" Type="float" />
+    <Property Name="MaxArea" Type="float" />
+    <Property Name="MinRooms" Type="int" />
+    <Property Name="MaxRooms" Type="int" />
+    <Property Name="MinFloor" Type="int" />
+    <Property Name="MaxFloor" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateFilterSet_HouseFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MinFloors" Type="int" />
+    <Property Name="MaxFloors" Type="int" />
+    <Property Name="MinArea" Type="float" />
+    <Property Name="MaxArea" Type="float" />
+    <Property Name="MinRooms" Type="int" />
+    <Property Name="MaxRooms" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateFilterSet_LandFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MinArea" Type="float" />
+    <Property Name="MaxArea" Type="float" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address_City" Type="nvarchar(max)" />
+    <Property Name="Address_Street" Type="nvarchar(max)" />
+    <Property Name="Address_House" Type="nvarchar(max)" />
+    <Property Name="Address_Number" Type="nvarchar(max)" />
+    <Property Name="Coordinate_latitude" Type="float" />
+    <Property Name="Coordinate_longitude" Type="float" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateSet_Apartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="TotalArea" Type="float" />
+    <Property Name="Rooms" Type="int" />
+    <Property Name="Floor" Type="int" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateSet_House">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="TotalFloors" Type="int" />
+    <Property Name="TotalArea" Type="float" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-RealEstateSet_Land">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="TotalArea" Type="float" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="z3-SupplySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="bigint" Nullable="false" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="RealEstateId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="22FK_ApartmentFilter_inherits_RealEstateFilter">
+    <End Role="z3-RealEstateFilterSet" Type="Self.z3-RealEstateFilterSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateFilterSet_ApartmentFilter" Type="Self.z3-RealEstateFilterSet_ApartmentFilter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateFilterSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateFilterSet_ApartmentFilter">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="22FK_HouseFilter_inherits_RealEstateFilter">
+    <End Role="z3-RealEstateFilterSet" Type="Self.z3-RealEstateFilterSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateFilterSet_HouseFilter" Type="Self.z3-RealEstateFilterSet_HouseFilter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateFilterSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateFilterSet_HouseFilter">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="23FK_LandFilter_inherits_RealEstateFilter">
+    <End Role="z3-RealEstateFilterSet" Type="Self.z3-RealEstateFilterSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateFilterSet_LandFilter" Type="Self.z3-RealEstateFilterSet_LandFilter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateFilterSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateFilterSet_LandFilter">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="2FK_Agent_inherits_Person">
+    <End Role="z3-PersonSet" Type="Self.z3-PersonSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-PersonSet_Agent" Type="Self.z3-PersonSet_Agent" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-PersonSet_Agent">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="2FK_Apartment_inherits_RealEstate">
+    <End Role="z3-RealEstateSet" Type="Self.z3-RealEstateSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateSet_Apartment" Type="Self.z3-RealEstateSet_Apartment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateSet_Apartment">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="2FK_Client_inherits_Person">
+    <End Role="z3-PersonSet" Type="Self.z3-PersonSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-PersonSet_Client" Type="Self.z3-PersonSet_Client" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-PersonSet_Client">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="2FK_House_inherits_RealEstate">
+    <End Role="z3-RealEstateSet" Type="Self.z3-RealEstateSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateSet_House" Type="Self.z3-RealEstateSet_House" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateSet_House">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="2FK_Land_inherits_RealEstate">
+    <End Role="z3-RealEstateSet" Type="Self.z3-RealEstateSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="z3-RealEstateSet_Land" Type="Self.z3-RealEstateSet_Land" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-RealEstateSet_Land">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DealDemand">
+    <End Role="z3-DemandSet" Type="Self.z3-DemandSet" Multiplicity="1" />
+    <End Role="z3-DealSet" Type="Self.z3-DealSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-DemandSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-DealSet">
+        <PropertyRef Name="Demand_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DealSupply">
+    <End Role="z3-SupplySet" Type="Self.z3-SupplySet" Multiplicity="1" />
+    <End Role="z3-DealSet" Type="Self.z3-DealSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-SupplySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-DealSet">
+        <PropertyRef Name="Supply_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DemandAgent">
+    <End Role="z3-PersonSet_Agent" Type="Self.z3-PersonSet_Agent" Multiplicity="0..1" />
+    <End Role="z3-DemandSet" Type="Self.z3-DemandSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet_Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-DemandSet">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DemandClient">
+    <End Role="z3-PersonSet_Client" Type="Self.z3-PersonSet_Client" Multiplicity="1" />
+    <End Role="z3-DemandSet" Type="Self.z3-DemandSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet_Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-DemandSet">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DemandRealEstateFilter">
+    <End Role="z3-RealEstateFilterSet" Type="Self.z3-RealEstateFilterSet" Multiplicity="1" />
+    <End Role="z3-DemandSet" Type="Self.z3-DemandSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateFilterSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-DemandSet">
+        <PropertyRef Name="RealEstateFilter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplyAgent">
+    <End Role="z3-PersonSet_Agent" Type="Self.z3-PersonSet_Agent" Multiplicity="0..1" />
+    <End Role="z3-SupplySet" Type="Self.z3-SupplySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet_Agent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-SupplySet">
+        <PropertyRef Name="AgentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplyClient">
+    <End Role="z3-PersonSet_Client" Type="Self.z3-PersonSet_Client" Multiplicity="1" />
+    <End Role="z3-SupplySet" Type="Self.z3-SupplySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-PersonSet_Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-SupplySet">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplyRealEstate">
+    <End Role="z3-RealEstateSet" Type="Self.z3-RealEstateSet" Multiplicity="1" />
+    <End Role="z3-SupplySet" Type="Self.z3-SupplySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="z3-RealEstateSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="z3-SupplySet">
+        <PropertyRef Name="RealEstateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище EntitisDbModelContainer">
+    <EntitySet Name="z3-DealSet" EntityType="Self.z3-DealSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-DemandSet" EntityType="Self.z3-DemandSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-PersonSet" EntityType="Self.z3-PersonSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-PersonSet_Agent" EntityType="Self.z3-PersonSet_Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-PersonSet_Client" EntityType="Self.z3-PersonSet_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateFilterSet" EntityType="Self.z3-RealEstateFilterSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateFilterSet_ApartmentFilter" EntityType="Self.z3-RealEstateFilterSet_ApartmentFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateFilterSet_HouseFilter" EntityType="Self.z3-RealEstateFilterSet_HouseFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateFilterSet_LandFilter" EntityType="Self.z3-RealEstateFilterSet_LandFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateSet" EntityType="Self.z3-RealEstateSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateSet_Apartment" EntityType="Self.z3-RealEstateSet_Apartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateSet_House" EntityType="Self.z3-RealEstateSet_House" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-RealEstateSet_Land" EntityType="Self.z3-RealEstateSet_Land" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="z3-SupplySet" EntityType="Self.z3-SupplySet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="22FK_ApartmentFilter_inherits_RealEstateFilter" Association="Self.22FK_ApartmentFilter_inherits_RealEstateFilter">
+      <End Role="z3-RealEstateFilterSet" EntitySet="z3-RealEstateFilterSet" />
+      <End Role="z3-RealEstateFilterSet_ApartmentFilter" EntitySet="z3-RealEstateFilterSet_ApartmentFilter" />
+    </AssociationSet>
+    <AssociationSet Name="22FK_HouseFilter_inherits_RealEstateFilter" Association="Self.22FK_HouseFilter_inherits_RealEstateFilter">
+      <End Role="z3-RealEstateFilterSet" EntitySet="z3-RealEstateFilterSet" />
+      <End Role="z3-RealEstateFilterSet_HouseFilter" EntitySet="z3-RealEstateFilterSet_HouseFilter" />
+    </AssociationSet>
+    <AssociationSet Name="23FK_LandFilter_inherits_RealEstateFilter" Association="Self.23FK_LandFilter_inherits_RealEstateFilter">
+      <End Role="z3-RealEstateFilterSet" EntitySet="z3-RealEstateFilterSet" />
+      <End Role="z3-RealEstateFilterSet_LandFilter" EntitySet="z3-RealEstateFilterSet_LandFilter" />
+    </AssociationSet>
+    <AssociationSet Name="2FK_Agent_inherits_Person" Association="Self.2FK_Agent_inherits_Person">
+      <End Role="z3-PersonSet" EntitySet="z3-PersonSet" />
+      <End Role="z3-PersonSet_Agent" EntitySet="z3-PersonSet_Agent" />
+    </AssociationSet>
+    <AssociationSet Name="2FK_Apartment_inherits_RealEstate" Association="Self.2FK_Apartment_inherits_RealEstate">
+      <End Role="z3-RealEstateSet" EntitySet="z3-RealEstateSet" />
+      <End Role="z3-RealEstateSet_Apartment" EntitySet="z3-RealEstateSet_Apartment" />
+    </AssociationSet>
+    <AssociationSet Name="2FK_Client_inherits_Person" Association="Self.2FK_Client_inherits_Person">
+      <End Role="z3-PersonSet" EntitySet="z3-PersonSet" />
+      <End Role="z3-PersonSet_Client" EntitySet="z3-PersonSet_Client" />
+    </AssociationSet>
+    <AssociationSet Name="2FK_House_inherits_RealEstate" Association="Self.2FK_House_inherits_RealEstate">
+      <End Role="z3-RealEstateSet" EntitySet="z3-RealEstateSet" />
+      <End Role="z3-RealEstateSet_House" EntitySet="z3-RealEstateSet_House" />
+    </AssociationSet>
+    <AssociationSet Name="2FK_Land_inherits_RealEstate" Association="Self.2FK_Land_inherits_RealEstate">
+      <End Role="z3-RealEstateSet" EntitySet="z3-RealEstateSet" />
+      <End Role="z3-RealEstateSet_Land" EntitySet="z3-RealEstateSet_Land" />
+    </AssociationSet>
+    <AssociationSet Name="DealDemand" Association="Self.DealDemand">
+      <End Role="z3-DemandSet" EntitySet="z3-DemandSet" />
+      <End Role="z3-DealSet" EntitySet="z3-DealSet" />
+    </AssociationSet>
+    <AssociationSet Name="DealSupply" Association="Self.DealSupply">
+      <End Role="z3-SupplySet" EntitySet="z3-SupplySet" />
+      <End Role="z3-DealSet" EntitySet="z3-DealSet" />
+    </AssociationSet>
+    <AssociationSet Name="DemandAgent" Association="Self.DemandAgent">
+      <End Role="z3-PersonSet_Agent" EntitySet="z3-PersonSet_Agent" />
+      <End Role="z3-DemandSet" EntitySet="z3-DemandSet" />
+    </AssociationSet>
+    <AssociationSet Name="DemandClient" Association="Self.DemandClient">
+      <End Role="z3-PersonSet_Client" EntitySet="z3-PersonSet_Client" />
+      <End Role="z3-DemandSet" EntitySet="z3-DemandSet" />
+    </AssociationSet>
+    <AssociationSet Name="DemandRealEstateFilter" Association="Self.DemandRealEstateFilter">
+      <End Role="z3-RealEstateFilterSet" EntitySet="z3-RealEstateFilterSet" />
+      <End Role="z3-DemandSet" EntitySet="z3-DemandSet" />
+    </AssociationSet>
+    <AssociationSet Name="SupplyAgent" Association="Self.SupplyAgent">
+      <End Role="z3-PersonSet_Agent" EntitySet="z3-PersonSet_Agent" />
+      <End Role="z3-SupplySet" EntitySet="z3-SupplySet" />
+    </AssociationSet>
+    <AssociationSet Name="SupplyClient" Association="Self.SupplyClient">
+      <End Role="z3-PersonSet_Client" EntitySet="z3-PersonSet_Client" />
+      <End Role="z3-SupplySet" EntitySet="z3-SupplySet" />
+    </AssociationSet>
+    <AssociationSet Name="SupplyRealEstate" Association="Self.SupplyRealEstate">
+      <End Role="z3-RealEstateSet" EntitySet="z3-RealEstateSet" />
+      <End Role="z3-SupplySet" EntitySet="z3-SupplySet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

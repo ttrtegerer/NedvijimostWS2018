@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="afab916e06d74af9aec4bd618ba80565" Name="Diagram1">
+        <EntityTypeShape EntityType="EntitisDbModel.DealSet" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.DemandSet" Width="1.5" PointX="6" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.PersonSet" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.PersonSet_Agent" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.PersonSet_Client" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateFilterSet" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateFilterSet_ApartmentFilter" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateFilterSet_HouseFilter" Width="1.5" PointX="6" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateFilterSet_LandFilter" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateSet" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateSet_Apartment" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateSet_House" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.RealEstateSet_Land" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitisDbModel.SupplySet" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="EntitisDbModel.DealDemand" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.DealSupply" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.DemandAgent" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.DemandClient" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.DemandRealEstateFilter" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C2FK_Agent_inherits_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C2FK_Client_inherits_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.SupplyAgent" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.SupplyClient" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C22FK_ApartmentFilter_inherits_RealEstateFilter" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C22FK_HouseFilter_inherits_RealEstateFilter" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C23FK_LandFilter_inherits_RealEstateFilter" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C2FK_Apartment_inherits_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C2FK_House_inherits_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.C2FK_Land_inherits_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="EntitisDbModel.SupplyRealEstate" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
