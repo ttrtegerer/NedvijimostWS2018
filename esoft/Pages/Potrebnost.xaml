@@ -1,0 +1,119 @@
+﻿<Page x:Class="esoft.Pages.Potrebnost"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:esoft.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="Potrebnost">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <StackPanel HorizontalAlignment="Left" Margin="5" Width="410">
+                <ListView  x:Name="LVPotrebnost" Height="300" SelectionChanged="LVPotrebnost_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Id }"></GridViewColumn>
+                            <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Address_City}"></GridViewColumn>
+                            <GridViewColumn Header="Улица" DisplayMemberBinding="{Binding Address_Street}"></GridViewColumn>
+                            <GridViewColumn Header="Дом" DisplayMemberBinding="{Binding Address_House}"></GridViewColumn>
+                            <GridViewColumn Header="Квартира" DisplayMemberBinding="{Binding Address_Number}"></GridViewColumn>
+                            <GridViewColumn Header="Мин.цена" DisplayMemberBinding="{Binding MinPrice}"></GridViewColumn>
+                            <GridViewColumn Header="Макс.цена" DisplayMemberBinding="{Binding MaxPrice}"></GridViewColumn>
+                            <GridViewColumn Header="Код клиента" DisplayMemberBinding="{Binding ClientId}"></GridViewColumn>
+                            <GridViewColumn Header="Код агента" DisplayMemberBinding="{Binding AgentId}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70"> Город:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxCity"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70"> Улица:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxStreet"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70"> Дом:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxHouse"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70">Квартира:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxRoom"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70">Мин. цена:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxMinPrise"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="70">Макс. цена:</TextBlock>
+                    <TextBox Width="110" x:Name="TBoxMaxPrise"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Width="75">Клиент:</TextBlock>
+                    <ComboBox x:Name="CBoxKlient" DisplayMemberPath="Fio" Width="110" Height="25"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Width="75">Риелтор:</TextBlock>
+                    <ComboBox x:Name="CBoxRieltor"  DisplayMemberPath="Fio" Width="110" Height="25"></ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Right" Width="280" >
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <RadioButton x:Name="RBRoom"  Margin="2"  Checked="RBRoom_Checked">Квартира</RadioButton>
+                    <RadioButton x:Name="RBHouse" Margin="2" Checked="RBHouse_Checked">Дом</RadioButton>
+                    <RadioButton x:Name="RBLand" Margin="2" Checked="RBLand_Checked">Земля</RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120">Мин. площадь:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxMinArea" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120">Макс. площадь:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxMaxArea" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"   x:Name="TBlocAddEdit1"></TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit1"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"   x:Name="TBlocAddEdit2"></TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit2"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"   x:Name="TBlocAddEdit3"></TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit3"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"   x:Name="TBlocAddEdit4"></TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit4"></TextBox>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Добавить" HorizontalAlignment="Right" Name="BtnAddK" Click="BtnAddK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Редактировать" HorizontalAlignment="Right" Name="BtnEditK" Click="BtnEditK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDeletK" Click="BtnDeletK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+            </StackPanel>
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+            <Button Content="Предложение" Width="190" HorizontalAlignment="Left" Name="BtnPredlozenie" Click="BtnPredlozenie_Click" Style="{StaticResource ButtonStyle}" Margin="55,0,40,0"/>
+            <Button Content="Объекты недвижимости" Width="190" HorizontalAlignment="Center" Name="BtnNedvijimost" Click="BtnNedvijimost_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Клиент/Риелтор" Width="190" HorizontalAlignment="Right" x:Name="BtnClientRieltor" Click="BtnClientRieltor_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Сделка" Width="190" HorizontalAlignment="Right" x:Name="BtnSdelka" Click="BtnSdelka_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,55,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
