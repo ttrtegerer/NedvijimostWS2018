@@ -1,0 +1,109 @@
+﻿<Page x:Class="esoft.Pages.Nedvijimost"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:esoft.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="Nedvijimost">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox x:Name="TBoxSerch" Width="120" Margin="5" TextChanged="TBoxSerch_TextChanged"></TextBox>
+            <ComboBox x:Name="CBSortByType" Width="120" Margin="5" SelectionChanged="CBSortByType_SelectionChanged">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFE21313" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <ComboBox x:Name="CBSortByAdress" Width="120" Margin="5" DisplayMemberPath="Adress" SelectionChanged="CBSortByAdress_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <StackPanel HorizontalAlignment="Left" Margin="5" Width="410">
+                <ListView  x:Name="LVNedvijimost" Height="300" SelectionChanged="LVNedvijimost_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Id }"></GridViewColumn>
+                    <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Address_City}"></GridViewColumn>
+                    <GridViewColumn Header="Улица" DisplayMemberBinding="{Binding Address_Street}"></GridViewColumn>
+                    <GridViewColumn Header="Дом" DisplayMemberBinding="{Binding Address_House}"></GridViewColumn>
+                    <GridViewColumn Header="Квартира" DisplayMemberBinding="{Binding Address_Number}"></GridViewColumn>
+                    <GridViewColumn Header="Широта" DisplayMemberBinding="{Binding Coordinate_latitude}"></GridViewColumn>
+                    <GridViewColumn Header="Долгота" DisplayMemberBinding="{Binding Coordinate_longitude}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+            </StackPanel>
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60"> Город:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxCity"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60"> Улица:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxStreet"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60"> Дом:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxHouse"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60">Квартира:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxRoom"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60"> Широта:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxLatitude"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="60">Долгота:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxLongitude"></TextBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Right" Width="280" >
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <RadioButton x:Name="RBRoom"  Margin="2"  Checked="RBRoom_Checked">Квартира</RadioButton>
+                    <RadioButton x:Name="RBHouse" Margin="2" Checked="RBHouse_Checked">Дом</RadioButton>
+                    <RadioButton x:Name="RBLand" Margin="2" Checked="RBLand_Checked">Земля</RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120">Площадь:</TextBlock>
+                    <TextBox Width="120" x:Name="TBoxArea" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"  x:Name="TBlocAddEdit2"> </TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit2"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10" >
+                    <TextBlock Width="120"   x:Name="TBlocAddEdit3"> </TextBlock>
+                    <TextBox Width="120" x:Name="TBoxAddEdit3"></TextBox>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Добавить" HorizontalAlignment="Right" Name="BtnAddK" Click="BtnAddK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Редактировать" HorizontalAlignment="Right" Name="BtnEditK" Click="BtnEditK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDeletK" Click="BtnDeletK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+            </StackPanel>
+            
+            
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+            <Button Content="Предложение" Width="190" HorizontalAlignment="Left" Name="BtnPredlozenie" Click="BtnPredlozenie_Click" Style="{StaticResource ButtonStyle}" Margin="55,0,40,0"/>
+            <Button Content="Потребность" Width="190" HorizontalAlignment="Center" Name="BtnPotribnost" Click="BtnPotribnost_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Клиент/Риелтор" Width="190" HorizontalAlignment="Right" x:Name="BtnClientRieltor" Click="BtnClientRieltor_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Сделка" Width="190" HorizontalAlignment="Right" x:Name="BtnSdelka" Click="BtnSdelka_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,55,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

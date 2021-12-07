@@ -1,0 +1,136 @@
+﻿<Page x:Class="esoft.Pages.ClientRieltor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:esoft.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="ClientRieltor">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TabControl Background="{StaticResource ColorSecondary3}" >
+            <TabItem Background="{StaticResource ColorAccent}" Margin="-2,-2,-2,2">
+                <TabItem.Header >
+                    Клиент
+                </TabItem.Header>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="850" Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+                        <TextBlock Margin="10"><Run Text="Поиск:"/></TextBlock>
+                        <TextBox x:Name="TBoxSerсhK" Height="25" Width="120" TextChanged="TBoxSerсhK_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <ListView x:Name="LVKlient" Width="480" Height="250" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="LVKlient_SelectionChanged"  >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Id}" Width="40"/>
+                                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Sername}" Width="87"/>
+                                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="87"/>
+                                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Otchestvo}" Width="87"/>
+                                    <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Phone}" Width="87"/>
+                                    <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="87"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Фамилия:"/></TextBlock>
+                            <TextBox x:Name="TBoxSernemeK" Height="25" Width="120" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Имя:"/></TextBlock>
+                            <TextBox x:Name="TBoxNameK" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Отчество:"/></TextBlock>
+                            <TextBox x:Name="TBoxOtcestvoK" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+                            <TextBlock Margin="10"><Run Text="Телефон:"/></TextBlock>
+                            <TextBox x:Name="TBoxPhoneK" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Почта:"/></TextBlock>
+                            <TextBox x:Name="TBoxPochtaK" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Добавить" HorizontalAlignment="Right" Name="BtnAddK" Click="BtnAddK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Редактировать" HorizontalAlignment="Right" Name="BtnEditK" Click="BtnEditK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDeletK" Click="BtnDeletK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Background="{StaticResource ColorAccent}" Margin="-2,-2,-2,2">
+                <TabItem.Header>
+                    Риелтор
+                </TabItem.Header>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="850" Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">
+                        <TextBlock Margin="10"><Run Text="Поиск:"/></TextBlock>
+                        <TextBox x:Name="TBoxSerсhR" Height="25" Width="120" TextChanged="TBoxSerсhR_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <ListView x:Name="LVRieltor" Width="480" Height="250" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="LVRieltor_SelectionChanged" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Id}" Width="40"/>
+                                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Sername}" Width="109"/>
+                                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="109"/>
+                                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Otchestvo}" Width="109"/>
+                                    <GridViewColumn Header="Процент от сделки" DisplayMemberBinding="{Binding DealShare}" Width="109"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Фамилия:"/></TextBlock>
+                            <TextBox x:Name="TBoxSernemeR" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Имя:"/></TextBlock>
+                            <TextBox x:Name="TBoxNameR" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Margin="10"><Run Text="Отчество:"/></TextBlock>
+                            <TextBox x:Name="TBoxOtcestvoR" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" >
+                            <TextBlock Margin="10"><Run Text="% от сделки:"/></TextBlock>
+                            <TextBox x:Name="TBoxDealShearR" Height="25" Width="120"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Добавить" HorizontalAlignment="Right" Name="BtnAddR" Click="BtnAddR_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Редактировать" HorizontalAlignment="Right" Name="BtnEditR" Click="BtnEditR_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDeletR" Click="BtnDeletR_Click" Style="{StaticResource ButtonStyle}"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="1"  Orientation="Horizontal">
+            <Button Content="Предложение" Width="190" HorizontalAlignment="Left" Name="BtnPredlozenie" Click="BtnPredlozenie_Click" Style="{StaticResource ButtonStyle}" Margin="55,0,40,0"/>
+            <Button Content="Потребность" Width="190" HorizontalAlignment="Center" Name="BtnPotribnost" Click="BtnPotribnost_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Объекты недвижимости" Width="190" HorizontalAlignment="Right" x:Name="BtnNedvijimost" Click="BtnNedvijimost_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Сделка" Width="190" HorizontalAlignment="Right" x:Name="BtnSdelka" Click="BtnSdelka_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,55,0"/>
+        </StackPanel>
+
+
+
+    </Grid>
+</Page>

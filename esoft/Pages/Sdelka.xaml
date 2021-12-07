@@ -1,0 +1,82 @@
+﻿<Page x:Class="esoft.Pages.Sdelka"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:esoft.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="Sdelka">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Left" Margin="5">
+                <ListView x:Name="LVSdelka" Width="400" Height="300" SelectionChanged="LVSdelka_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Код сделки" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="Код потребности" DisplayMemberBinding="{Binding Demand_Id}"></GridViewColumn>
+                            <GridViewColumn Header="Код предложения" DisplayMemberBinding="{Binding Supply_Id}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Width="250">Потребность:</TextBlock>
+                    <ComboBox x:Name="CBoxPotrebnost" DisplayMemberPath="Potrebnost" Width="120" Height="25" SelectionChanged="CBoxPotrebnost_SelectionChanged"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Width="250">Предожение:</TextBlock>
+                    <ComboBox x:Name="CBoxPredlozhenie"  DisplayMemberPath="Predlozenie" Width="120" Height="25" SelectionChanged="CBoxPredlozhenie_SelectionChanged" ></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="5">
+                    <TextBlock Width="150">Стоимость услуг:</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   Margin="5">
+                    <TextBlock Width="250">Для клиента-продавца:</TextBlock>
+                    <TextBox x:Name="TBoxStoimostYslugForClientSale" Width="120" Height="25" FontWeight="Bold"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   Margin="5">
+                    <TextBlock Width="250">Для клиента-покупателя:</TextBlock>
+                    <TextBox x:Name="TBoxStoimostYslugForClientBuy" Width="120" Height="25" FontWeight="Bold"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="5">
+                    <TextBlock Width="150">Отчисления и комисии:</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   Margin="5">
+                    <TextBlock Width="250">Отчислений компании:</TextBlock>
+                    <TextBox x:Name="TBoxOtcislenieCompanii" Width="120" Height="25" FontWeight="Bold"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   Margin="5">
+                    <TextBlock Width="250">Отчислений риэлтору клиента-покупателя:</TextBlock>
+                    <TextBox x:Name="TBoxOtcislenieRieltorKlientBuy" Width="120" Height="25" FontWeight="Bold"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"   Margin="5">
+                    <TextBlock Width="250">Отчислений риэлтору клиента-продовца:</TextBlock>
+                    <TextBox x:Name="TBoxOtcislenieRieltorKlientSale" Width="120" Height="25" FontWeight="Bold"></TextBox>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Добавить" HorizontalAlignment="Right" Name="BtnAddK" Click="BtnAddK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Редактировать" HorizontalAlignment="Right" Name="BtnEditK" Click="BtnEditK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Content="Удалить" HorizontalAlignment="Right" Name="BtnDeletK" Click="BtnDeletK_Click" Style="{StaticResource ButtonStyle}"></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+            <Button Content="Потребность" Width="190" HorizontalAlignment="Left" Name="BtnPotrebnost" Click="BtnPotrebnost_Click" Style="{StaticResource ButtonStyle}" Margin="55,0,40,0"/>
+            <Button Content="Объекты недвижимости" Width="190" HorizontalAlignment="Center" Name="BtnNedvijimost" Click="BtnNedvijimost_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Клиент/Риелтор" Width="190" HorizontalAlignment="Right" x:Name="BtnClientRieltor" Click="BtnClientRieltor_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,40,0"/>
+            <Button Content="Предложение" Width="190" HorizontalAlignment="Right" x:Name="BtnPredlozenie" Click="BtnPredlozenie_Click" Style="{StaticResource ButtonStyle}" Margin="0,0,55,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
